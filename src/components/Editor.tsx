@@ -15,7 +15,7 @@ export const Editor = () => {
         content,
         editorProps: {
             attributes: {
-                class: "focus:outline-none prose dark:prose-headings:text-gray-300 dark:prose-strong:text-gray-300 mx-auto h-screen border-none pt-10 font-serif text-xl dark:text-gray-300",
+                class: "focus:outline-none prose dark:prose-headings:text-neutral-300 dark:prose-strong:text-neutral-300 mx-auto h-screen border-none pt-10 font-serif text-xl dark:text-neutral-300",
             },
         },
     });
