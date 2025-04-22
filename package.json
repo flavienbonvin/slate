@@ -11,13 +11,17 @@
         "pretty": "prettier --write ."
     },
     "dependencies": {
-        "@tailwindcss/vite": "^4.1.4",
+        "@fontsource/bodoni-moda": "^5.2.5",
+        "@tiptap/pm": "^2.11.7",
+        "@tiptap/react": "^2.11.7",
+        "@tiptap/starter-kit": "^2.11.7",
         "react": "^19.0.0",
-        "react-dom": "^19.0.0",
-        "tailwindcss": "^4.1.4"
+        "react-dom": "^19.0.0"
     },
     "devDependencies": {
         "@eslint/js": "^9.22.0",
+        "@tailwindcss/typography": "^0.5.16",
+        "@tailwindcss/vite": "^4.1.4",
         "@types/react": "^19.0.10",
         "@types/react-dom": "^19.0.4",
         "@vitejs/plugin-react": "^4.3.4",
@@ -29,6 +33,7 @@
         "prettier-plugin-tailwindcss": "^0.6.11",
         "typescript": "~5.7.2",
         "typescript-eslint": "^8.26.1",
+        "tailwindcss": "^4.1.4",
         "vite": "^6.3.1"
     }
 }
