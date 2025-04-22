@@ -7,7 +7,10 @@ import { LS_CONTENT_KEY } from "../constant";
 
 const extensions = [StarterKit];
 
-const content = getFromLocalStorage(LS_CONTENT_KEY, "<p>Start typing...</p>");
+const content = getFromLocalStorage(
+    LS_CONTENT_KEY,
+    "<p>This is a simple app.</p><p>Where you can write.</p>",
+);
 
 export const Editor = () => {
     const editor = useEditor({
@@ -15,7 +18,7 @@ export const Editor = () => {
         content,
         editorProps: {
             attributes: {
-                class: "focus:outline-none prose dark:prose-headings:text-neutral-300 dark:prose-strong:text-neutral-300 mx-auto h-screen border-none pt-10 font-serif text-xl dark:text-neutral-300",
+                class: "prose dark:prose-headings:text-neutral-300 dark:prose-strong:text-neutral-300 mx-auto h-screen border-none px-10 pt-10 font-serif focus:outline-none md:px-0 md:text-xl dark:text-neutral-300",
             },
         },
     });
