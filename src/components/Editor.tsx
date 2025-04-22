@@ -9,7 +9,7 @@ const extensions = [StarterKit];
 
 const content = getFromLocalStorage(
     LS_CONTENT_KEY,
-    "<p>This is a simple app.</p><p>Where you can write.</p>",
+    "<h1>Welcome</h1><p>This app offers a distraction-free writing environment. Use simple Markdown formatting to structure your text.</p><p>Everything is saved locally on your device: so you can pick up right where you left off.</p>",
 );
 
 export const Editor = () => {
@@ -18,7 +18,7 @@ export const Editor = () => {
         content,
         editorProps: {
             attributes: {
-                class: "prose dark:prose-headings:text-neutral-300 dark:prose-strong:text-neutral-300 mx-auto h-screen border-none px-10 pt-10 font-serif focus:outline-none md:px-0 md:text-xl dark:text-neutral-300",
+                class: "prose dark:prose-headings:text-neutral-300 dark:prose-strong:text-neutral-300 mx-auto h-screen border-none px-10 pt-10 font-serif focus:outline-none md:px-0 md:text-xl md:pt-14 dark:text-neutral-300",
             },
         },
     });
@@ -29,5 +29,5 @@ export const Editor = () => {
 
     useDebounce(saveContent, editor?.getHTML() || "", 300);
 
-    return <EditorContent editor={editor} onClick={() => editor?.commands.focus("end")} />;
+    return <EditorContent onFocus={() => editor?.commands.focus("end")} editor={editor} />;
 };
