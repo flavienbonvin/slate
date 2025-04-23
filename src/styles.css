@@ -3,4 +3,19 @@
 
 @theme {
     --font-serif: "Bodoni Moda", Georgia, Cambria, "Times New Roman", Times, serif;
+
+    /* Remove unused gray */
+    --color-slate-*: initial;
+    --color-gray-*: initial;
+    --color-zinc-*: initial;
+    --color-stone-*: initial;
+
+    /* Remove all unused neutral shades */
+    --color-neutral-50: initial;
+    --color-neutral-200: initial;
+    --color-neutral-400: initial;
+    --color-neutral-500: initial;
+    --color-neutral-600: initial;
+    --color-neutral-700: initial;
+    --color-neutral-900: initial;
 }

@@ -90,7 +90,7 @@ export const Toolbar = ({ editor }: Props) => {
                     size={iconSize}
                     onClick={handlePrevious}
                     className={clsx(
-                        "cursor-pointer text-neutral-950 dark:text-neutral-300",
+                        "cursor-pointer text-neutral-800 dark:text-neutral-300",
                         editor.can().undo() ? "opacity-100" : "opacity-50",
                     )}
                 />
@@ -98,7 +98,7 @@ export const Toolbar = ({ editor }: Props) => {
                     size={iconSize}
                     onClick={handleNext}
                     className={clsx(
-                        "rotate-180 cursor-pointer text-neutral-950 dark:text-neutral-300",
+                        "rotate-180 cursor-pointer text-neutral-800 dark:text-neutral-300",
                         editor.can().redo() ? "opacity-100" : "opacity-50",
                     )}
                 />
@@ -107,17 +107,17 @@ export const Toolbar = ({ editor }: Props) => {
                 <Code
                     size={iconSize}
                     onClick={handleCopyClick}
-                    className="cursor-pointer text-neutral-950 dark:text-neutral-300"
+                    className="cursor-pointer text-neutral-800 dark:text-neutral-300"
                 />
                 <Hash
                     size={iconSize}
                     onClick={handleMarkdownClick}
-                    className="cursor-pointer text-neutral-950 dark:text-neutral-300"
+                    className="cursor-pointer text-neutral-800 dark:text-neutral-300"
                 />
                 <RotateCw
                     size={iconSize}
                     onClick={handleEraserClick}
-                    className="cursor-pointer text-neutral-950 dark:text-neutral-300"
+                    className="cursor-pointer text-neutral-800 dark:text-neutral-300"
                 />
             </span>
         </div>
