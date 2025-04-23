@@ -1,54 +1,29 @@
-# React + TypeScript + Vite
+<p align="center">
+  <img alt="slate.flavienbonvin.com" src="public/favicon.png" width="100" />
+</p>
+<h1 align="center">
+  slate.flavienbonvin.com
+</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">A small note taking app</p>
 
-Currently, two official plugins are available:
+This simple note-taking app has nothing special. It allows me to write ideas without getting distraction. I made that because I didn't want to buy a [IA Writer](https://ia.net/de/writer) license. It's nowhere near as good as IA Writer.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Things to add
 
-## Expanding the ESLint configuration
+- Metadata improvements
+- Add tooltips on actions
+- Saving indicator
+- Typewritter mode
+- Print styles
+- Accessibility improvements
+- Remove some deps and do it myself
+- Multiple note support?
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Social
 
-```js
-export default tseslint.config({
-    extends: [
-        // Remove ...tseslint.configs.recommended and replace with this
-        ...tseslint.configs.recommendedTypeChecked,
-        // Alternatively, use this for stricter rules
-        ...tseslint.configs.strictTypeChecked,
-        // Optionally, add this for stylistic rules
-        ...tseslint.configs.stylisticTypeChecked,
-    ],
-    languageOptions: {
-        // other options...
-        parserOptions: {
-            project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-            tsconfigRootDir: import.meta.dirname,
-        },
-    },
-});
-```
+You can find me here:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default tseslint.config({
-    plugins: {
-        // Add the react-x and react-dom plugins
-        "react-x": reactX,
-        "react-dom": reactDom,
-    },
-    rules: {
-        // other rules...
-        // Enable its recommended typescript rules
-        ...reactX.configs["recommended-typescript"].rules,
-        ...reactDom.configs.recommended.rules,
-    },
-});
-```
+- [X (Twitter) (@flavienbonv)](https://twitter.com/flavienbonvin)
+- [X (Bluesky) (@flavien)](https://bsky.app/profile/flavien.bsky.social)
+- [GitHub (flavienbonvin)](https://github.com/flavienbonvin)

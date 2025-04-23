@@ -2,7 +2,7 @@ import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { useCallback } from "react";
 import { useDebounce } from "../useDebounce";
-import { getFromLocalStorage, saveToLocalStorage } from "../localStorage";
+import { getFromLocalStorage, saveToLocalStorage } from "../lib/localStorage";
 import { defaultContent, LS_CONTENT_KEY } from "../constant";
 import { Toolbar } from "./Toolbar";
 
