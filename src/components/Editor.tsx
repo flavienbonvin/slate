@@ -3,14 +3,12 @@ import StarterKit from "@tiptap/starter-kit";
 import { useCallback } from "react";
 import { useDebounce } from "../useDebounce";
 import { getFromLocalStorage, saveToLocalStorage } from "../localStorage";
-import { LS_CONTENT_KEY } from "../constant";
+import { defaultContent, LS_CONTENT_KEY } from "../constant";
+import { Toolbar } from "./Toolbar";
 
 const extensions = [StarterKit];
 
-const content = getFromLocalStorage(
-    LS_CONTENT_KEY,
-    "<h1>Welcome</h1><p>This app offers a distraction-free writing environment. Use simple Markdown formatting to structure your text.</p><p>Everything is saved locally on your device: so you can pick up right where you left off.</p>",
-);
+const content = getFromLocalStorage(LS_CONTENT_KEY, defaultContent);
 
 export const Editor = () => {
     const editor = useEditor({
@@ -18,7 +16,7 @@ export const Editor = () => {
         content,
         editorProps: {
             attributes: {
-                class: "prose dark:prose-headings:text-neutral-300 dark:prose-strong:text-neutral-300 mx-auto h-screen border-none px-10 pt-10 font-serif focus:outline-none md:px-0 md:text-xl md:pt-14 dark:text-neutral-300",
+                class: "text-neutral-800 prose-headings:text-neutral-800 dark:prose-headings:text-neutral-300 dark:prose-strong:text-neutral-300 border-none focus:outline-none md:text-xl dark:text-neutral-300",
             },
         },
     });
@@ -29,5 +27,25 @@ export const Editor = () => {
 
     useDebounce(saveContent, editor?.getHTML() || "", 300);
 
-    return <EditorContent onFocus={() => editor?.commands.focus("end")} editor={editor} />;
+    const handleFocus = () => {
+        editor?.commands.focus("end");
+    };
+
+    const handleClick = () => {
+        if (!editor?.isFocused) {
+            editor?.commands.focus("end");
+        }
+    };
+
+    return (
+        <div className="prose mx-auto flex h-screen flex-col px-10 md:px-0">
+            <EditorContent
+                onClick={handleClick}
+                onFocus={handleFocus}
+                editor={editor}
+                className="flex-1 pt-10 font-serif md:pt-14"
+            />
+            <Toolbar editor={editor} />
+        </div>
+    );
 };
