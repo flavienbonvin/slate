@@ -3,6 +3,9 @@
 
 @theme {
     --font-serif: "Bodoni Moda", Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-sans:
+        Helvetica, "Segoe UI", Arial, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
     /* Remove unused gray */
     --color-slate-*: initial;

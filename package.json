@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "@fontsource/bodoni-moda": "^5.2.5",
+        "@icons-pack/react-simple-icons": "^12.7.0",
         "@tiptap/pm": "^2.11.7",
         "@tiptap/react": "^2.11.7",
         "@tiptap/starter-kit": "^2.11.7",
