@@ -1,3 +1,5 @@
+export const SAVE_TIMEOUT = 700;
+
 export const LS_CONTENT_KEY = "slate-content";
 
 export const defaultContent =

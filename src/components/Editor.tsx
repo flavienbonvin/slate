@@ -1,10 +1,10 @@
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import { useCallback } from "react";
-import { useDebounce } from "../useDebounce";
-import { getFromLocalStorage, saveToLocalStorage } from "../lib/localStorage";
+import { getFromLocalStorage } from "../lib/localStorage";
 import { defaultContent, LS_CONTENT_KEY } from "../constant";
 import { Toolbar } from "./Toolbar";
+import { useSaveLocaltStorage } from "../lib/useSaveLocaltStorage";
+import { Dot } from "lucide-react";
 
 const content = getFromLocalStorage(LS_CONTENT_KEY, defaultContent);
 
@@ -19,10 +19,7 @@ export const Editor = () => {
         },
     });
 
-    const saveContent = useCallback((value: string) => {
-        saveToLocalStorage(LS_CONTENT_KEY, value);
-    }, []);
-    useDebounce(saveContent, editor?.getHTML() || "", 300);
+    const { status } = useSaveLocaltStorage({ editor });
 
     const handleFocus = () => {
         editor?.commands.focus("end");
@@ -36,6 +33,12 @@ export const Editor = () => {
 
     return (
         <div className="flex min-h-screen w-full flex-col">
+            {status === "saved" && (
+                <div className="animate-fade-in-out absolute top-0 right-0 mr-2 flex items-center">
+                    <Dot className="text-lime-600 dark:text-lime-400" />
+                    <p className="text-sm text-neutral-950 dark:text-neutral-300">Saved</p>
+                </div>
+            )}
             <main
                 className="prose mx-auto w-full flex-1 px-10 pt-10 pb-16 md:px-0"
                 onClick={handleClick}

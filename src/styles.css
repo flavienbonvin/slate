@@ -21,4 +21,31 @@
     --color-neutral-600: initial;
     --color-neutral-700: initial;
     --color-neutral-900: initial;
+
+    /* Animations */
+    --animate-fade-in-out: fade-in-out var(--tw-duration, 4s) var(--tw-ease, ease-in-out) forwards;
+
+    @keyframes fade-in-out {
+        0% {
+            opacity: 0;
+            scale: 0.95;
+            filter: blur(1rem);
+        }
+        8% {
+            scale: 1;
+            filter: blur(0);
+        }
+        12% {
+            opacity: 1;
+        }
+        80% {
+            opacity: 1;
+            filter: blur(0);
+        }
+        100% {
+            opacity: 0;
+            scale: 0.98;
+            filter: blur(0.5rem);
+        }
+    }
 }
