@@ -23,7 +23,7 @@ export const Toolbar = ({ editor }: Props) => {
     }
 
     return (
-        <div className="not-prose mb-5 flex gap-10">
+        <div className="not-prose flex gap-10">
             <span className="flex gap-4">
                 <ArrowLeft
                     size={iconSize}

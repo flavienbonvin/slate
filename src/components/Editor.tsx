@@ -6,17 +6,15 @@ import { getFromLocalStorage, saveToLocalStorage } from "../lib/localStorage";
 import { defaultContent, LS_CONTENT_KEY } from "../constant";
 import { Toolbar } from "./Toolbar";
 
-const extensions = [StarterKit];
-
 const content = getFromLocalStorage(LS_CONTENT_KEY, defaultContent);
 
 export const Editor = () => {
     const editor = useEditor({
-        extensions,
+        extensions: [StarterKit],
         content,
         editorProps: {
             attributes: {
-                class: "text-neutral-950 prose-headings:text-neutral-950 dark:prose-headings:text-neutral-300 dark:prose-strong:text-neutral-300 border-none focus:outline-none md:text-xl dark:text-neutral-300",
+                class: "prose prose-headings:text-current dark:prose-headings:text-current dark:prose-code:text-current mx-auto text-neutral-950 focus:outline-none dark:text-neutral-300",
             },
         },
     });
@@ -24,7 +22,6 @@ export const Editor = () => {
     const saveContent = useCallback((value: string) => {
         saveToLocalStorage(LS_CONTENT_KEY, value);
     }, []);
-
     useDebounce(saveContent, editor?.getHTML() || "", 300);
 
     const handleFocus = () => {
@@ -38,14 +35,22 @@ export const Editor = () => {
     };
 
     return (
-        <div className="prose mx-auto flex h-screen flex-col px-10 md:px-0">
-            <EditorContent
+        <div className="flex min-h-screen w-full flex-col">
+            <main
+                className="prose mx-auto w-full flex-1 px-10 pt-10 pb-16 md:px-0"
                 onClick={handleClick}
-                onFocus={handleFocus}
-                editor={editor}
-                className="flex-1 pt-10 font-serif md:pt-14"
-            />
-            <Toolbar editor={editor} />
+            >
+                <EditorContent
+                    onClick={handleClick}
+                    onFocus={handleFocus}
+                    editor={editor}
+                    className="font-serif text-lg"
+                />
+            </main>
+
+            <footer className="prose sticky bottom-0 mx-auto w-full bg-neutral-100 px-2 py-4 dark:bg-neutral-950">
+                <Toolbar editor={editor} />
+            </footer>
         </div>
     );
 };
