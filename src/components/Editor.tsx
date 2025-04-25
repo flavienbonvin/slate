@@ -39,6 +39,7 @@ export const Editor = () => {
                     <p className="text-sm text-neutral-950 dark:text-neutral-300">Saved</p>
                 </div>
             )}
+
             <main
                 className="prose mx-auto w-full flex-1 px-10 pt-10 pb-16 md:px-0"
                 onClick={handleClick}
@@ -51,7 +52,7 @@ export const Editor = () => {
                 />
             </main>
 
-            <footer className="prose sticky bottom-0 mx-auto w-full bg-neutral-100 px-2 py-4 dark:bg-neutral-950">
+            <footer className="prose sticky bottom-0 mx-auto w-full bg-neutral-100 px-2 py-4 dark:bg-neutral-950 print:hidden">
                 <Toolbar editor={editor} />
             </footer>
         </div>

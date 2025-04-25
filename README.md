@@ -13,9 +13,7 @@ This simple note-taking app has nothing special. It allows me to write ideas wit
 
 - Metadata improvements
 - Add tooltips on actions
-- Saving indicator
 - Typewritter mode
-- Print styles
 - Accessibility improvements
 - Remove some deps and do it myself
 - Multiple note support?
