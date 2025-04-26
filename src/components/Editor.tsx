@@ -2,11 +2,13 @@ import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { getFromLocalStorage } from "../lib/localStorage";
 import { defaultContent, LS_CONTENT_KEY } from "../constant";
-import { Toolbar } from "./Toolbar";
 import { useSaveLocaltStorage } from "../lib/useSaveLocaltStorage";
 import { Dot } from "lucide-react";
+import { lazy, Suspense } from "react";
 
 const content = getFromLocalStorage(LS_CONTENT_KEY, defaultContent);
+
+const Toolbar = lazy(() => import("./Toolbar").then((module) => ({ default: module.Toolbar })));
 
 export const Editor = () => {
     const editor = useEditor({
@@ -53,7 +55,9 @@ export const Editor = () => {
             </main>
 
             <footer className="prose sticky bottom-0 mx-auto w-full bg-neutral-100 px-2 py-4 dark:bg-neutral-950 print:hidden">
-                <Toolbar editor={editor} />
+                <Suspense fallback={null}>
+                    <Toolbar editor={editor} />
+                </Suspense>
             </footer>
         </div>
     );
