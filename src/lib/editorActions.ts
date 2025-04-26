@@ -69,11 +69,11 @@ export const downloadEditorContentToMarkdownFile = (editor: Editor) => {
     }
 };
 
-export const eraseEditorCotent = (editor: Editor) => {
+export const eraseEditorContent = (editor: Editor) => {
     try {
         const content = editor.getHTML();
-        editor.commands.setContent(defaultContent);
         editor.commands.clearContent();
+        editor.commands.setContent(defaultContent);
         editor.commands.focus();
 
         toast.success("Content cleared", {

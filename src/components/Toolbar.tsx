@@ -6,7 +6,7 @@ import { SiGithub } from "@icons-pack/react-simple-icons";
 import {
     copyEditorContentToClipboard,
     downloadEditorContentToMarkdownFile,
-    eraseEditorCotent,
+    eraseEditorContent,
     copyEditorContentToClipboardAsMarkdown,
     redoLastEditorAction,
     undoLastEditorAction,
@@ -79,7 +79,7 @@ export const Toolbar = ({ editor }: ToolbarProps) => {
         },
         {
             icon: <RotateCw size={ICON_SIZE} />,
-            onClick: () => eraseEditorCotent(editor),
+            onClick: () => eraseEditorContent(editor),
             label: "Clear content",
         },
     ];
