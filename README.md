@@ -11,7 +11,6 @@ This simple note-taking app has nothing special. It allows me to write ideas wit
 
 ## Things to add
 
-- Metadata improvements
 - Add tooltips on actions
 - Typewritter mode
 - Accessibility improvements

@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+:root {
+    --background: var(--color-neutral-100);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --background: var(--color-neutral-950);
+    }
+}
+
 @theme {
     --font-serif: "Bodoni Moda", Georgia, Cambria, "Times New Roman", Times, serif;
     --font-sans:
@@ -21,6 +32,9 @@
     --color-neutral-600: initial;
     --color-neutral-700: initial;
     --color-neutral-900: initial;
+
+    /* Used for theme metadata */
+    --color-background: var(--background);
 
     /* Animations */
     --animate-fade-in-out: fade-in-out var(--tw-duration, 4s) var(--tw-ease, ease-in-out) forwards;
