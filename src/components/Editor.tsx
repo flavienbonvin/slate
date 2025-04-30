@@ -2,9 +2,10 @@ import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { getFromLocalStorage } from "../lib/localStorage";
 import { defaultContent, LS_CONTENT_KEY } from "../constant";
-import { useSaveLocaltStorage } from "../lib/useSaveLocaltStorage";
+import { useSaveLocalStorage } from "../lib/useSaveLocaltStorage";
 import { Dot } from "lucide-react";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { captureSave } from "../lib/keyboard";
 
 const content = getFromLocalStorage(LS_CONTENT_KEY, defaultContent);
 
@@ -23,7 +24,22 @@ export const Editor = () => {
         },
     });
 
-    const { status } = useSaveLocaltStorage({ editor });
+    const { status, saveData } = useSaveLocalStorage({ editor });
+
+    useEffect(() => {
+        document.addEventListener("keydown", (e: KeyboardEvent) =>
+            captureSave(e, () => {
+                saveData();
+            }),
+        );
+        return () => {
+            document.removeEventListener("keydown", (e: KeyboardEvent) =>
+                captureSave(e, () => {
+                    saveData();
+                }),
+            );
+        };
+    }, [saveData]);
 
     const handleFocus = () => {
         editor?.commands.focus("end");
@@ -38,7 +54,7 @@ export const Editor = () => {
     return (
         <div className="flex min-h-screen w-full flex-col">
             {status === "saved" && (
-                <div className="animate-fade-in-out sticky top-0 mr-2 flex items-center self-end">
+                <div className="animate-fade-in-out sticky top-3 mr-2 flex h-0 items-center self-end">
                     <Dot className="text-lime-600 dark:text-lime-400" />
                     <p className="text-sm text-neutral-950 dark:text-neutral-300">Saved</p>
                 </div>

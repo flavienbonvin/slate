@@ -7,10 +7,15 @@ interface Props {
     editor: Editor | null;
 }
 
-export const useSaveLocaltStorage = ({ editor }: Props) => {
+export const useSaveLocalStorage = ({ editor }: Props) => {
     const [status, setStatus] = useState<"initial" | "writing" | "saved">("initial");
 
     const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    const saveData = () => {
+        setStatus("saved");
+        saveToLocalStorage(LS_CONTENT_KEY, editor!.getHTML() || "");
+    };
 
     useEffect(() => {
         if (!editor) {
@@ -26,7 +31,7 @@ export const useSaveLocaltStorage = ({ editor }: Props) => {
 
             debounceRef.current = setTimeout(() => {
                 setStatus("saved");
-                saveToLocalStorage(LS_CONTENT_KEY, editor.getHTML() || "");
+                saveToLocalStorage(LS_CONTENT_KEY, editor!.getHTML() || "");
 
                 debounceRef.current = null;
             }, SAVE_TIMEOUT);
@@ -43,5 +48,5 @@ export const useSaveLocaltStorage = ({ editor }: Props) => {
         };
     }, [editor]);
 
-    return { status };
+    return { status, saveData };
 };
