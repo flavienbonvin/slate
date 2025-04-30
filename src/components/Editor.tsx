@@ -2,7 +2,7 @@ import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { getFromLocalStorage } from "../lib/localStorage";
 import { defaultContent, LS_CONTENT_KEY } from "../constant";
-import { useSaveLocalStorage } from "../lib/useSaveLocaltStorage";
+import { useSaveLocalStorage } from "../hooks/useSaveLocaltStorage";
 import { Dot } from "lucide-react";
 import { lazy, Suspense, useEffect } from "react";
 import { captureSave } from "../lib/keyboard";

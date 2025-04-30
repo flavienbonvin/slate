@@ -1,7 +1,7 @@
 import { Editor } from "@tiptap/react";
 import { useEffect, useRef, useState } from "react";
 import { LS_CONTENT_KEY, SAVE_TIMEOUT } from "../constant";
-import { saveToLocalStorage } from "./localStorage";
+import { saveToLocalStorage } from "../lib/localStorage";
 
 interface Props {
     editor: Editor | null;
