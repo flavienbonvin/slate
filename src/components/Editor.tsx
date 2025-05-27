@@ -19,7 +19,7 @@ export const Editor = () => {
             scrollThreshold: { top: 0, right: 0, bottom: 80, left: 0 },
             scrollMargin: { top: 0, right: 0, bottom: 80, left: 0 },
             attributes: {
-                class: "prose prose-headings:text-current dark:prose-headings:text-current dark:prose-code:text-current mx-auto text-neutral-950 focus:outline-none dark:text-neutral-300",
+                class: "prose prose-headings:text-current dark:prose-headings:text-current dark:prose-strong:text-current/90 dark:prose-code:text-current mx-auto text-neutral-950 focus:outline-none dark:text-neutral-300",
             },
         },
     });
